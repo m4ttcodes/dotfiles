@@ -1,0 +1,12 @@
+[user]
+	name = m4ttcodes
+	email = vicenteaburtog@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = auto
+[pull]
+	ff = only
