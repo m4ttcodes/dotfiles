@@ -3,17 +3,17 @@ $username\
 $hostname\
 $directory\
 $git_branch\
-$git_state\
 $git_status\
-$git_metrics\
 $fill\
 $cmd_duration $jobs $time\
 $line_break\
 $character
 """
 
+palette = "catppuccin-mocha"
+
 # Disable the blank line at the start of the prompt
-add_newline = false
+add_newline = true
 
 [fill]
 symbol = " " 
@@ -21,15 +21,57 @@ symbol = " "
 [directory]
 style = "blue"
 read_only = " 🔒 "
+truncation_length = 4
 
 [character]
-success_symbol ='[❯](bold purple)' 
-error_symbol ='[❯](bold red)'
+success_symbol ='[❯](purple)' 
+error_symbol ='[❯](red)'
 
 [time]
+format = "[$time]($style) "
+style = "yellow"
 utc_time_offset = "-3"
 disabled = false
 time_format = "%T"
+
+[jobs]
+symbol = "🔗"
+style = "yellow"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold yellow"
+disabled = false
+
+[palettes.catppuccin-mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"	
+mauve = "#cba6f7"
+red	= "#f38ba8"	
+maroon = "#eba0ac"	
+peach = "#fab387"	
+yellow = "#f9e2af"
+green = "#a6e3a1"	
+teal = "#94e2d5"	
+sky	= "#89dceb"	
+sapphire = "#74c7ec"	
+blue = "#89b4fa"	
+lavender = "#b4befe"	
+text = "#cdd6f4"	
+Subtext1 = "#bac2de"	
+Subtext0 = "#a6adc8"	
+overlay2 = "#9399b2"	
+overlay1 = "#7f849c"	
+overlay0 = "#6c7086"	
+surface2 = "#585b70"
+surface1 = "#45475a"	
+surface0 = "#313244"	
+base = "#1e1e2e"	
+mantle = "#181825"	
+crust = "#11111b"
 
 [aws]
 symbol = "  "
@@ -60,6 +102,23 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bright-black"
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+style = "bold red"
+conflicted = '='	
+ahead = '⇡'	
+behind = '⇣'
+diverged = '⇕'	
+up_to_date = ''	
+untracked = '?'	
+stashed	= '$'	
+modified = '!'	
+staged = '+'	
+renamed	= '»'	
+deleted = '✘'
 
 [golang]
 symbol = " "
@@ -167,3 +226,4 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
+

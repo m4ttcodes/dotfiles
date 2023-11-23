@@ -1,14 +1,12 @@
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/local/bin:$PATH"
 
 
 # plugins
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 plugins=(
 git
-zsh-autosuggestions
-zsh-syntax-highlighting
 )
 
 #nvm
@@ -29,3 +27,4 @@ alias path='echo; tr ":" "\n" <<< "$PATH"; echo;'
 
 # starship prompt
 eval "$(starship init zsh)"
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
